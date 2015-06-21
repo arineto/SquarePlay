@@ -36,19 +36,19 @@
 
         <div id="blocks">
             <h1>Controls</h1>
-            <div id="start" class ="block"></div>
-            <div id="stop" class ="block"></div>
-            <div id="broadcastAll" class ="block"></div>
-            <div id="broadcastSides" class ="block"></div>
-            <div id="broadcastDiag" class ="block"></div>
-            <div id="left" class ="block"></div>
-            <div id="right" class ="block"></div>
-            <div id="up" class ="block"></div>
-            <div id="down" class ="block"></div>
-            <div id="northeast" class ="block"></div>
-            <div id="southeast" class ="block"></div>
-            <div id="northwest" class ="block"></div>
-            <div id="southwest" class ="block"></div>
+            <div id="start" class ="block start"></div>
+            <div id="stop" class ="block stop"></div>
+            <div id="broadcastAll" class ="block broadcastAll"></div>
+            <div id="broadcastSides" class ="block broadcastSides"></div>
+            <div id="broadcastDiag" class ="block broadcastDiag"></div>
+            <div id="left" class ="block left"></div>
+            <div id="right" class ="block right"></div>
+            <div id="up" class ="block up"></div>
+            <div id="down" class ="block down"></div>
+            <div id="northeast" class ="block northeast"></div>
+            <div id="southeast" class ="block southeast"></div>
+            <div id="northwest" class ="block northwest"></div>
+            <div id="southwest" class ="block southwest"></div>
 
         </div>
 
@@ -59,15 +59,14 @@
             /*global $ Raphael soundManager metronome*/
 
 
-function tick(t) {
-    onMetronomeTick();
-	$("#count").html(t);    
-}
+            function tick(t) {
+                onMetronomeTick(t);
+            	$("#count").html(t);    
+            }
 
-function done() {
-    $("#startstop").html("start");
-}
-
+            function done() {
+                $("#startstop").html("start");
+            }
 
 
             var paper = Raphael("metronome_container", 200, 200);

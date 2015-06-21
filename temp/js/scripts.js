@@ -1,13 +1,20 @@
 
 $( document ).ready(function() {
     for (var i = 0; i <280; i++) {
-    	$('#board').append("<div id=square"+i+" class='squareCell'></div>");
+    	$('#board').append("<div id=square"+i+" position='"+i+"' class='squareCell' control='empty'></div>");
 	}
 });
 
 var position = 0;
 
-function onMetronomeTick(){
+function onMetronomeTick(t){
+	if(t == 1){
+		var startSquare = $('.start');
+		position = parseInt(startSquare.attr('position'));
+		$(".red").each(function (index) {
+			$(this).removeClass('red');
+		});
+	}
 	if(position >0){
 		$('#square'+(position-1)).removeClass("red");
 	}
@@ -24,10 +31,15 @@ function selectSquare(square){
 	var control = $('.control_selected');
 	$('.control_selected').removeClass("control_selected");
 	if(control.attr('id') == 'start'){
-		$('.start').removeClass("start");
+		$('.squareCell.start').removeClass("start");
+
+		if(square.attr('control') !== 'empty'){
+			square.toggleClass('start');
+		}
 	}
 	square.removeClass();
 	square.addClass('squareCell');
+	square.attr('control', 'empty');
 	square.addClass(control.attr('id'));
 	square.attr('control', control.attr('id'));
 }
