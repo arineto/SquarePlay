@@ -121,8 +121,8 @@ var metronome = function(opts) {
         	$("<div />", {
         		html: 	"<span>tempo: </span>" + 
         				"<input class='metr_input' type='text' id='tempo' value='100' />" +
-						"<span>ticks: </span>" +
-						"<input class='metr_input' type='text' id='ticks' value='8' />" +
+						
+						
 						"<button id='startstop'>start</button>" +
 						"<div id='count'>0</div>"
         	}).appendTo(el);
@@ -141,11 +141,11 @@ var metronome = function(opts) {
 					
 					var ticks = parseInt($('#ticks').val(), 10);
 					if (!ticks) { ticks = 20; }
-					else if (ticks > 60) { ticks = 60; }
+					else if (ticks > 60) { ticks = ticks; }
 					else if (ticks < 8) { ticks = 8; }
 					$("#ticks").val(ticks); 
 					
-					m.start(tempo, ticks);
+					m.start(tempo, 100000000   );
 				} else {
 					$(this).html("start");
 					m.stop();

@@ -41,12 +41,10 @@
 /*global $ Raphael soundManager metronome*/
 
 function tick(t) {
-    $("<div />").html(t % 2 === 1 ? "Tick" : "Tock").addClass("statusline").appendTo(".status");
 	$("#count").html(t);    
 }
 
 function done() {
-    $("<div />").html("Done!").addClass("statusline").css("background-color", "#FFFF99").appendTo(".status");
     $("#startstop").html("start");
 }
 
