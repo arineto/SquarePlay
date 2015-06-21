@@ -12,6 +12,7 @@
 	<script type="text/javascript" language="Javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" language="javascript" src="js/scripts.js"></script>
 	<script type="text/javascript" language="javascript" src="js/metronome.js"></script>
+
 </head>
 
 <body>
@@ -22,13 +23,49 @@
 
 	 	<div id="metronome">
 	 		<h1>Metronome</h1>
-			<p>Beat: <input id="bpm" type="number" min="0" max="140" maxlength="3"> bpm</p>
-			<audio id="beep1" controls class="hidden">
-				<source src="click.wav" type="audio/mpeg">
-			</audio>
-			<button onclick="startMetronome()">Start</button>
-			<button onclick="stopMetronome()">Stop</button>
+    	<table class="example">
+    		<tr>
+    			<td><div id="metronome_container"></div></td>
+    			<td><div class="status"></div></td>
+    		</tr>
+    		<tr>
+    			<td colspan=2 id="inputs"></td>
+			</tr>
+		</table>
 	 	</div>
+
+	 	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <script src="metronome.js"></script>
+        <script>
+/*global $ Raphael soundManager metronome*/
+
+function tick(t) {
+    $("<div />").html(t % 2 === 1 ? "Tick" : "Tock").addClass("statusline").appendTo(".status");
+	$("#count").html(t);    
+}
+
+function done() {
+    $("<div />").html("Done!").addClass("statusline").css("background-color", "#FFFF99").appendTo(".status");
+    $("#startstop").html("start");
+}
+
+var paper = Raphael("metronome_container", 200, 200);
+
+var m = metronome({
+    len: 200,
+    angle: 20,
+    tick: tick,
+    complete: done,
+    paper: paper,
+    audio: "https://github.com/wilson428/metronome/blob/master/tick.wav?raw=true"
+});
+
+m.make_input("#inputs");
+
+m.shapes().outline.attr("fill", "#00A30F");
+m.shapes().arm.attr("stroke", "#EEE");
+        </script>
 
  	</div>
 </body>
