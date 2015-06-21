@@ -1,5 +1,4 @@
 #board{
-	background-color: red;
 	width: 1000px;
 	height: 700px;
 	float:left;
@@ -10,17 +9,27 @@
 	margin-left: 10px
 }
 
+#blocks{
+	float:left;
+	margin-left:10px;
+	width: 200px;
+}
+
 .squareCell{
 	margin:0;
 	float:left;
 	width: 48px;
 	height :48px;
-	background-color: green;
+	background-color: rgb(0, 163, 15);
 	border: 1px solid black;
 }
 
 .red{
 	background-color: red !important;
+}
+
+.control_selected{
+	background-color: black !important;
 }
 
 .hidden{
@@ -37,6 +46,14 @@
 	height: 200px;
 	padding: 10px;
 	overflow-y: auto;
+}
+
+.block{
+	display: inline-block;
+	width:50px;
+	height: 50px;
+	background-color: rgb(0, 163, 15);
+	cursor: pointer;
 }
 
 .statusline {
@@ -56,4 +73,44 @@
 	width: 50px;
 	display: inline-block;
 	text-align: right;
+}
+
+.start{
+	border-color: blue;
+}
+.stop{
+	border-color: red;
+}
+.up{
+	border-color: yellow;
+}
+.down{
+	border-color: orange;
+}
+.left{
+	border-color: pink;
+}
+.right{
+	border-color: purple;
+}
+.northeast{
+	border-color: red;
+}
+.southeast{
+	border-color: gray;
+}
+.northwest{
+	border-color: white;
+}
+.southwest{
+	border-color: brown;
+}
+.broadcastAll{
+	border-color: cyan;
+}
+.broadcastSides{
+	border-color: gold;
+}
+.broadcastDiag{
+	border-color: silver;
 }
