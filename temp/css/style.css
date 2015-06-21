@@ -1,0 +1,25 @@
+#board{
+	background-color: red;
+	width: 1000px;
+	height: 700px;
+	float:left;
+}
+
+#metronome{
+	float:left;
+	margin-left: 10px
+}
+
+.squareCell{
+	margin:0;
+	float:left;
+	width: 48px;
+	height :48px;
+	background-color: green;
+	border: 1px solid black;
+}
+
+
+.hidden{
+	display: none;
+}

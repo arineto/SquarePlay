@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Square Play</title>
+  <meta name="description" content="A online music board for creation of sounds using a tone matrix">
+  <meta name="author" content="Square Play">
+
+  	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" language="Javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" language="javascript" src="js/metronome.js"></script>
+</head>
+
+<body>
+	<div id= "squareControls">
+
+		<div id="board">
+	 	</div>
+
+	 	<div id="metronome">
+	 		<h1>Metronome</h1>
+			<p>Beat: <input id="bpm" type="number" min="0" max="140" maxlength="3"> bpm</p>
+			<audio id="beep1" controls class="hidden">
+				<source src="click.wav" type="audio/mpeg">
+			</audio>
+			<button onclick="startMetronome()">Start</button>
+			<button onclick="stopMetronome()">Stop</button>
+	 	</div>
+
+ 	</div>
+</body>
+</html>
