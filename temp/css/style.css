@@ -19,6 +19,9 @@
 	border: 1px solid black;
 }
 
+.red{
+	background-color: red !important;
+}
 
 .hidden{
 	display: none;

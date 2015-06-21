@@ -38,9 +38,11 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="metronome.js"></script>
         <script>
-/*global $ Raphael soundManager metronome*/
+            /*global $ Raphael soundManager metronome*/
+
 
 function tick(t) {
+    onMetronomeTick();
 	$("#count").html(t);    
 }
 
@@ -48,21 +50,23 @@ function done() {
     $("#startstop").html("start");
 }
 
-var paper = Raphael("metronome_container", 200, 200);
 
-var m = metronome({
-    len: 200,
-    angle: 20,
-    tick: tick,
-    complete: done,
-    paper: paper,
-    audio: "https://github.com/wilson428/metronome/blob/master/tick.wav?raw=true"
-});
 
-m.make_input("#inputs");
+            var paper = Raphael("metronome_container", 200, 200);
 
-m.shapes().outline.attr("fill", "#00A30F");
-m.shapes().arm.attr("stroke", "#EEE");
+            var m = metronome({
+                len: 200,
+                angle: 20,
+                tick: tick,
+                complete: done,
+                paper: paper,
+                audio: "https://github.com/wilson428/metronome/blob/master/tick.wav?raw=true"
+            });
+
+            m.make_input("#inputs");
+
+            m.shapes().outline.attr("fill", "#00A30F");
+            m.shapes().arm.attr("stroke", "#EEE");
         </script>
 
  	</div>
