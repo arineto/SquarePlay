@@ -2,20 +2,24 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>Square Play</title>
-  <meta name="description" content="A online music board for creation of sounds using a tone matrix">
-  <meta name="author" content="Square Play">
-
+    <title>Square Play</title>
+    <meta name="description" content="A online music board for creation of sounds using a tone matrix">
+    <meta name="author" content="Square Play">
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
   	<link rel="stylesheet" href="css/style.css">
-	<script type="text/javascript" language="Javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <script type="text/javascript" language="Javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script type="text/javascript" language="Javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" language="javascript" src="js/scripts.js"></script>
 	<script type="text/javascript" language="javascript" src="js/metronome.js"></script>
-
 </head>
 
 <body>
+    <h1>Square Play</h1>
 	<div id= "squareControls">
 
 		<div id="board">
@@ -52,13 +56,8 @@
 
         </div>
 
-	 	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-        <script src="metronome.js"></script>
         <script>
             /*global $ Raphael soundManager metronome*/
-
-
             function tick(t) {
                 onMetronomeTick(t);
             	$("#count").html(t);    
@@ -67,7 +66,6 @@
             function done() {
                 $("#startstop").html("start");
             }
-
 
             var paper = Raphael("metronome_container", 200, 200);
 
@@ -82,7 +80,7 @@
 
             m.make_input("#inputs");
 
-            m.shapes().outline.attr("fill", "#00A30F");
+            m.shapes().outline.attr("fill", "#34495e");
             m.shapes().arm.attr("stroke", "#EEE");
         </script>
 
