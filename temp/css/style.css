@@ -15,6 +15,12 @@
 	width: 200px;
 }
 
+#start{
+	background-image: url('../images/play.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 .squareCell{
 	margin:0;
 	float:left;
@@ -82,74 +88,62 @@
 	background-position: center;
 }
 .stop{
-	border-color: red;
 	background-image: url('../images/stop.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
 .up{
-	border-color: yellow;
 	background-image: url('../images/setaCima.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
 .down{
-	border-color: orange;
 	background-image: url('../images/setaBaixo.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
 .left{
-	border-color: pink;
 	background-image: url('../images/esquerda.png');
 	background-repeat: no-repeat;
 	background-position: center;
 
 }
 .right{
-	border-color: purple;
 	background-image: url('../images/direita.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
 .northeast{
-	border-color: red;
 	background-image: url('../images/nordeste.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
 .southeast{
-	border-color: gray;
 	background-image: url('../images/sudeste.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
 .northwest{
-	border-color: white;
 	background-image: url('../images/noroeste.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
 .southwest{
-	border-color: brown;
 	background-image: url('../images/sudoeste.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
 .broadcastAll{
-	border-color: cyan;
 	background-image: url('../images/todosLados.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
 .broadcastSides{
-	border-color: gold;
 	background-image: url('../images/semDiagonais.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
 .broadcastDiag{
-	border-color: silver;
 	background-image: url('../images/diagonais.png');
 	background-repeat: no-repeat;
 	background-position: center;
