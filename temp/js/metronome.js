@@ -30,7 +30,7 @@ var metronome = function(opts) {
         tick_count = 0;
     
     var outline = paper.path("M"+x+","+y+"l-"+x0+",-"+y0+"a"+l+","+l+" "+2*r+" 0,1 "+2*x0+",0L"+x+","+y).attr({
-        fill: "#EEF",
+        fill: "#ecf0f1",
         'stroke-width': 0    
     });
     

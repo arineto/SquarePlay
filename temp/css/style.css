@@ -1,7 +1,23 @@
+body{
+	background-color: #ecf0f1;
+}
+
+h1{
+	text-align: center;
+}
+
+#squareControls{
+	width: 1550px;
+	margin: 30px auto;
+}
+
 #board{
-	width: 1000px;
-	height: 700px;
+	width: 960px;
+	height: 672px;
 	float:left;
+	margin-right: 20px;
+	-webkit-box-shadow: 0 0 5px 2px #7e8c8d;
+	box-shadow: 0 0 5px 2px #7e8c8d;
 }
 
 #metronome{
@@ -26,16 +42,16 @@
 	float:left;
 	width: 48px;
 	height :48px;
-	background-color: rgb(0, 163, 15);
-	border: 1px solid black;
+	background-color: #34495e;
+	border: 1px solid #7e8c8d;
 }
 
 .red{
-	background-color: red !important;
+	background-color: #7e8c8d !important;
 }
 
 .control_selected{
-	background-color: green !important;
+	background-color: #7e8c8d !important;
 }
 
 .hidden{
@@ -58,7 +74,7 @@
 	display: inline-block;
 	width:50px;
 	height: 50px;
-	background-color: rgb(0, 163, 15);
+	background-color: #34495e;
 	cursor: pointer;
 }
 

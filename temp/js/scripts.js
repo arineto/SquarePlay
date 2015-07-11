@@ -1,4 +1,3 @@
-
 $( document ).ready(function() {
     for (var i = 0; i <280; i++) {
     	$('#board').append("<div id=square"+i+" position='"+i+"' class='squareCell' control='empty'></div>");
