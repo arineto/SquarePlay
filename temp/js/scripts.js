@@ -6,6 +6,11 @@ $( document ).ready(function() {
 		for (; i < q; i++) {
 	    	$('#board').append("<div id=square"+i+" position='"+i+"' class='squareCell' control='empty' delay = 0 sound='"+strings[c]+(i%25)+"' soundOrigin='"+strings[c]+(i%25)+"'></div>");
 	    	$('body').append("<audio class='audioCell' id='"+strings[c]+(i%25)+"' controls> <source src='./audio/"+strings[c]+(i%25)+".mp3' type='audio/mpeg'> </audio></br>");
+
+	    	$('body').append("<audio class='audioCell' id='"+strings[c]+(i%25)+"minus10"+"' controls> <source src='./audio/"+strings[c]+(i%25)+"minus10"+".mp3' type='audio/mpeg'> </audio></br>");
+	    	$('body').append("<audio class='audioCell' id='"+strings[c]+(i%25)+"minus5"+"' controls> <source src='./audio/"+strings[c]+(i%25)+"minus5"+".mp3' type='audio/mpeg'> </audio></br>");
+	    	$('body').append("<audio class='audioCell' id='"+strings[c]+(i%25)+"plus5"+"' controls> <source src='./audio/"+strings[c]+(i%25)+"plus5"+".mp3' type='audio/mpeg'> </audio></br>");
+	    	$('body').append("<audio class='audioCell' id='"+strings[c]+(i%25)+"plus10"+"' controls> <source src='./audio/"+strings[c]+(i%25)+"plus10"+".mp3' type='audio/mpeg'> </audio></br>");
 		}
 
 	}
