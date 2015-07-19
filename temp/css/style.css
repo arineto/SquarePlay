@@ -12,8 +12,8 @@ h1{
 }
 
 #board{
-	width: 960px;
-	height: 672px;
+	width: 1200px;
+	height: 361px;
 	float:left;
 	margin-right: 20px;
 	-webkit-box-shadow: 0 0 5px 2px #7e8c8d;
@@ -33,6 +33,18 @@ h1{
 
 #start{
 	background-image: url('../images/play.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#mute{
+	background-image: url('../images/mute.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#delay{
+	background-image: url('../images/delay.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
@@ -163,4 +175,30 @@ h1{
 	background-image: url('../images/diagonais.png');
 	background-repeat: no-repeat;
 	background-position: center;
+}
+.mute{
+	background-color: red;
+}
+
+.delay{
+	font-size: 15px;
+	color: green;
+}
+
+.audioCell{
+	display:none;
+}
+
+.pitchBtn{
+	width:30px;
+	height:100px;
+}
+
+.pitchSelected{
+	background-color: blue;
+}
+
+#pitchControls{
+	width:180px;
+	margin:0 auto;
 }
