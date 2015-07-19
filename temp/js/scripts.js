@@ -5,9 +5,10 @@ $( document ).ready(function() {
 		var q = i + 25;
 		for (; i < q; i++) {
 	    	$('#board').append("<div id=square"+i+" position='"+i+"' class='squareCell' control='empty' sound='"+strings[c]+(i%25)+"'></div>");
-	    	$('body').append("<audio class='' id='"+strings[c]+(i%25)+"' controls> <source src='./audio/"+strings[c]+(i%25)+".mp3' type='audio/mpeg'> </audio></br>");
+	    	$('body').append("<audio class='xupa' id='"+strings[c]+(i%25)+"' controls> <source src='./audio/"+strings[c]+(i%25)+".mp3' type='audio/mpeg'> </audio></br>");
 		}
 		$('body').append("</br>");
+
 	}
 });
 
