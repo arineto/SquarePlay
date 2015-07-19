@@ -1,6 +1,13 @@
 $( document ).ready(function() {
-    for (var i = 0; i <280; i++) {
-    	$('#board').append("<div id=square"+i+" position='"+i+"' class='squareCell' control='empty'></div>");
+	var strings = ['e', 'a', 'd', 'g', 'b', 'e-'];
+	var i = 0;
+	for(var c=0; c<strings.length; c++){
+		var q = i + 25;
+		for (; i < q; i++) {
+	    	$('#board').append("<div id=square"+i+" position='"+i+"' class='squareCell' control='empty' sound='"+strings[c]+(i%25)+"'></div>");
+	    	$('body').append("<audio class='' id='"+strings[c]+(i%25)+"' controls> <source src='./audio/"+strings[c]+(i%25)+".mp3' type='audio/mpeg'> </audio></br>");
+		}
+		$('body').append("</br>");
 	}
 });
 
@@ -17,7 +24,12 @@ function onMetronomeTick(t){
 	if(position >0){
 		$('#square'+(position-1)).removeClass("red");
 	}
+
 	$('#square'+position).addClass("red");
+	var sound_id = $('#square'+position).attr('sound');
+	console.log(sound_id);
+	document.getElementById(sound_id).play();
+
 	position++;
 }
 
@@ -42,6 +54,7 @@ function selectSquare(square){
 	square.addClass(control.attr('id'));
 	square.attr('control', control.attr('id'));
 }
+
 
 $(document).on({
 	click: function(event){
