@@ -22,8 +22,14 @@
 <body>
     <h1>Square Play</h1>
 	<div id= "squareControls">
-
 		<div id="board">
+        <div id="pitchControls">
+            <button id="pitch-2"    class="pitchBtn"    value="-2" onclick="changePitch(-2)"></button>
+            <button id="pitch-1"   class="pitchBtn"    value="-1" onclick="changePitch(-1)"></button>
+            <button id="pitch0"     class="pitchBtn pitchSelected" value="0" onclick="changePitch(0)"></button>
+            <button id="pitch1"    class="pitchBtn"    value="1" onclick="changePitch(1)"></button>
+            <button id="pitch2"    class="pitchBtn"    value="2" onclick="changePitch(2)"></button>
+        </div>
 	 	</div>
 
 	 	<div id="metronome">
@@ -54,6 +60,8 @@
             <div id="southeast" class ="block southeast"></div>
             <div id="northwest" class ="block northwest"></div>
             <div id="southwest" class ="block southwest"></div>
+            <div id="mute" class ="block"></div>
+            <div id="delay" class ="block"></div>
 
         </div>
 

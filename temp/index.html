@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Square Play</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="css/bootstrap.css">
+  		<link rel="stylesheet" href="css/style.css">
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script type="text/javascript" language="Javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	    <script type="text/javascript" language="Javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" language="javascript" src="js/scripts.js"></script>
+		<script type="text/javascript" language="javascript" src="js/metronome.js"></script>
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header">
+			<div>
+				<h7>Square Play</h7>
+			</div>
+			<div id="metronome">
+	 		<h1>Metronome</h1>
+        	<table class="example">
+        		<tr>
+        			<td><div id="metronome_container"></div></td>
+        			<td><div class="status"></div></td>
+        		</tr>
+        		<tr>
+        			<td colspan=2 id="inputs"></td>
+    			</tr>
+    		</table>
+	 	</div>
+
+        <div id="blocks">
+            <h1>Controls</h1>
+            <div id="start" class ="block"></div>
+            <div id="stop" class ="block stop"></div>
+            <div id="broadcastAll" class ="block broadcastAll"></div>
+            <div id="broadcastSides" class ="block broadcastSides"></div>
+            <div id="broadcastDiag" class ="block broadcastDiag"></div>
+            <div id="left" class ="block left"></div>
+            <div id="right" class ="block right"></div>
+            <div id="up" class ="block up"></div>
+            <div id="down" class ="block down"></div>
+            <div id="northeast" class ="block northeast"></div>
+            <div id="southeast" class ="block southeast"></div>
+            <div id="northwest" class ="block northwest"></div>
+            <div id="southwest" class ="block southwest"></div>
+
+        </div>
+        <script>
+            /*global $ Raphael soundManager metronome*/
+            function tick(t) {
+                onMetronomeTick(t);
+            	//$("#count").html(t);    
+            }
+
+            function done() {
+                $("#startstop").html("start");
+            }
+
+            var paper = Raphael("metronome_container", 200, 200);
+
+            var m = metronome({
+                len: 200,
+                angle: 20,
+                tick: tick,
+                complete: done,
+                paper: paper,
+                audio: "https://github.com/wilson428/metronome/blob/master/tick.wav?raw=true"
+            });
+
+            m.make_input("#inputs");
+
+            m.shapes().outline.attr("fill", "#34495e");
+            m.shapes().arm.attr("stroke", "#EEE");
+        </script>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<div id="board">
+	 					</div>
+
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+					<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
