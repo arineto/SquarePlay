@@ -12,8 +12,8 @@ h1{
 }
 
 #board{
-	width: 1200px;
-	height: 361px;
+	width: 1248px;
+	height: 438px;
 	float:left;
 	margin-right: 20px;
 	-webkit-box-shadow: 0 0 5px 2px #7e8c8d;
@@ -202,3 +202,30 @@ h1{
 	width:180px;
 	margin:0 auto;
 }
+
+#frets .squareCell{
+	background-color: #FFF;
+	color: #000;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 12px;
+}
+
+.strings{
+	background-color: #FFF;
+	color: #000;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+

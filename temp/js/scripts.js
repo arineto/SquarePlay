@@ -1,8 +1,10 @@
 $( document ).ready(function() {
 	var strings = ['e', 'a', 'd', 'g', 'b', 'e-'];
+	var strings2 = ['E', 'A', 'D', 'G', 'B', 'e'];
 	var i = 0;
 	for(var c=0; c<strings.length; c++){
 		var q = i + 25;
+		$('#board').append("<div class='squareCell strings'>"+ strings2[c] +"</div>");
 		for (; i < q; i++) {
 	    	$('#board').append("<div id=square"+i+" position='"+i+"' class='squareCell' control='empty' delay = 0 sound='"+strings[c]+(i%25)+"' soundOrigin='"+strings[c]+(i%25)+"'></div>");
 	    	$('body').append("<audio class='audioCell' id='"+strings[c]+(i%25)+"' controls> <source src='./audio/"+strings[c]+(i%25)+".mp3' type='audio/mpeg'> </audio></br>");
