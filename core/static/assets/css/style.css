@@ -1,0 +1,167 @@
+body{
+	background-color: #ecf0f1;
+}
+
+h1{
+	text-align: center;
+}
+
+#squareControls{
+	width: 1550px;
+	margin: 30px auto;
+}
+
+#board{
+	width: 960px;
+	height: 672px;
+	float:left;
+	margin-right: 20px;
+	-webkit-box-shadow: 0 0 5px 2px #7e8c8d;
+	box-shadow: 0 0 5px 2px #7e8c8d;
+}
+
+#metronome{
+	float:left;
+	margin-left: 10px
+}
+
+#blocks{
+	float:left;
+	clear:both;
+	margin-left:10px;
+	width: 200px;
+}
+
+#start{
+	background-image: url('../images/play.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.squareCell{
+	margin:0;
+	float:left;
+	width: 48px;
+	height :48px;
+	background-color: #34495e;
+	border: 1px solid #7e8c8d;
+}
+
+.red{
+	background-color: #7e8c8d !important;
+}
+
+.control_selected{
+	background-color: #7e8c8d !important;
+}
+
+.hidden{
+	display: none;
+}
+
+.example {
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.status {
+	width: 100px;
+	height: 200px;
+	padding: 10px;
+	overflow-y: auto;
+}
+
+.block{
+	display: inline-block;
+	width:50px;
+	height: 50px;
+	background-color: #34495e;
+	cursor: pointer;
+}
+
+.statusline {
+	font-size: 10px;
+	background-color: #E0E0E0;
+	margin: 3px 0;
+	padding: 2px;
+}
+
+.metr_input {
+   width: 40px;
+   margin-right: 10px;
+   text-align: center;
+}
+
+#count {
+	width: 50px;
+	display: inline-block;
+	text-align: right;
+}
+
+.start{
+	border-color: blue;
+	background-image: url('../images/play.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.stop{
+	background-image: url('../images/stop.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.up{
+	background-image: url('../images/setaCima.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.down{
+	background-image: url('../images/setaBaixo.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.left{
+	background-image: url('../images/esquerda.png');
+	background-repeat: no-repeat;
+	background-position: center;
+
+}
+.right{
+	background-image: url('../images/direita.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.northeast{
+	background-image: url('../images/nordeste.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.southeast{
+	background-image: url('../images/sudeste.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.northwest{
+	background-image: url('../images/noroeste.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.southwest{
+	background-image: url('../images/sudoeste.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.broadcastAll{
+	background-image: url('../images/todosLados.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.broadcastSides{
+	background-image: url('../images/semDiagonais.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.broadcastDiag{
+	background-image: url('../images/diagonais.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}

@@ -1,0 +1,163 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Square Play</title>
+    <meta name="description" content="A online music board for creation of sounds using a tone matrix">
+    <meta name="author" content="Square Play">
+
+    {% load staticfiles %}
+    
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script type="text/javascript" language="Javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script type="text/javascript" language="Javascript" src="{% static 'js/bootstrap.js' %}"></script>
+	<script type="text/javascript" language="javascript" src="{% static 'js/scripts.js' %}"></script>
+	<script type="text/javascript" language="javascript" src="{% static 'js/metronome.js' %}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+</head>
+
+<body>
+    <h1>Square Play</h1>
+	<div id= "squareControls">
+		<div id="board">
+            <div id="pitchControls">
+                <button id="pitch-2"    class="pitchBtn"    value="-2" onclick="changePitch(-2)"></button>
+                <button id="pitch-1"   class="pitchBtn"    value="-1" onclick="changePitch(-1)"></button>
+                <button id="pitch0"     class="pitchBtn pitchSelected" value="0" onclick="changePitch(0)"></button>
+                <button id="pitch1"    class="pitchBtn"    value="1" onclick="changePitch(1)"></button>
+                <button id="pitch2"    class="pitchBtn"    value="2" onclick="changePitch(2)"></button>
+            </div>
+            <div id="frets">
+                <div class="squareCell" ></div>
+                <div class="squareCell" >0</div>
+                <div class="squareCell" >1</div>
+                <div class="squareCell" >2</div>
+                <div class="squareCell" >3</div>
+                <div class="squareCell" >4</div>
+                <div class="squareCell" >5</div>
+                <div class="squareCell" >6</div>
+                <div class="squareCell" >7</div>
+                <div class="squareCell" >8</div>
+                <div class="squareCell" >9</div>
+                <div class="squareCell" >10</div>
+                <div class="squareCell" >11</div>
+                <div class="squareCell" >12</div>
+                <div class="squareCell" >13</div>
+                <div class="squareCell" >14</div>
+                <div class="squareCell" >15</div>
+                <div class="squareCell" >16</div>
+                <div class="squareCell" >17</div>
+                <div class="squareCell" >18</div>
+                <div class="squareCell" >19</div>
+                <div class="squareCell" >20</div>
+                <div class="squareCell" >21</div>
+                <div class="squareCell" >22</div>
+                <div class="squareCell" >23</div>
+                <div class="squareCell" >24</div>
+            </div>
+	 	</div>
+        
+
+	 	<div id="metronome">
+	 		<h1>Metronome</h1>
+        	<table class="example">
+        		<tr>
+        			<td><div id="metronome_container"></div></td>
+        			<td><div class="status"></div></td>
+        		</tr>
+        		<tr>
+        			<td colspan=2 id="inputs"></td>
+    			</tr>
+    		</table>
+	 	</div>
+
+        <div id="blocks">
+            <h1>Controls</h1>
+            <div id="start" class ="block"></div>
+            <div id="stop" class ="block stop"></div>
+            <div id="broadcastAll" class ="block broadcastAll"></div>
+            <div id="broadcastSides" class ="block broadcastSides"></div>
+            <div id="broadcastDiag" class ="block broadcastDiag"></div>
+            <div id="left" class ="block left"></div>
+            <div id="right" class ="block right"></div>
+            <div id="up" class ="block up"></div>
+            <div id="down" class ="block down"></div>
+            <div id="northeast" class ="block northeast"></div>
+            <div id="southeast" class ="block southeast"></div>
+            <div id="northwest" class ="block northwest"></div>
+            <div id="southwest" class ="block southwest"></div>
+            <div id="mute" class ="block"></div>
+            <div id="delay" class ="block"></div>
+
+        </div>
+
+        <script>
+            /*global $ Raphael soundManager metronome*/
+            function tick(t) {
+                onMetronomeTick(t);
+            	//$("#count").html(t);    
+            }
+
+            function done() {
+                $("#startstop").html("start");
+            }
+
+            var paper = Raphael("metronome_container", 200, 200);
+
+            var m = metronome({
+                len: 200,
+                angle: 20,
+                tick: tick,
+                complete: done,
+                paper: paper,
+                audio: "https://github.com/wilson428/metronome/blob/master/ti2ck.wav?raw=true"
+            });
+
+            m.make_input("#inputs");
+
+            m.shapes().outline.attr("fill", "#34495e");
+            m.shapes().arm.attr("stroke", "#EEE");
+
+            $(function () {
+                var audioElement = $('#audio'), href = audioElement.children('a').attr('href');
+                $.template('audioTemplate', '<audio src="${src}" controls>');
+                if (Modernizr.audio.mp3) {
+                    audioElement.empty();
+                    $.tmpl('audioTemplate', {src: href}).appendTo(audioElement);
+                }
+            });
+
+            var strings = ['e', 'a', 'd', 'g', 'b', 'e-'];
+            var strings2 = ['E', 'A', 'D', 'G', 'B', 'e'];
+            var i = 0;
+            for(var c=0; c<strings.length; c++){
+                var q = i + 25;
+                $('#board').append("<div class='squareCell strings'>"+ strings2[c] +"</div>");
+                for (; i < q; i++) {
+                    $('#board').append("<div id=square"+i+" position='"+i+"' class='squareCell' control='empty' delay = 0 sound='"+strings[c]+(i%25)+"' soundOrigin='"+strings[c]+(i%25)+"'></div>");
+
+                    var standard = "/static/audio/"+strings[c]+(i%25)+".mp3";
+                    var minus10 = "/static/audio/"+strings[c]+(i%25)+"minus10.mp3";
+                    var minus5 = "/static/audio/"+strings[c]+(i%25)+"minus5.mp3";
+                    var plus5 = "/static/audio/"+strings[c]+(i%25)+"plus5.mp3";
+                    var plus10 = "/static/audio/"+strings[c]+(i%25)+"plus10.mp3";
+                    
+                    $('body').append("<audio class='audioCell' id='"+strings[c]+(i%25)+"' controls> <source src='"+standard+"' type='audio/mpeg'> </audio></br>");
+
+                    $('body').append("<audio class='audioCell' id='"+strings[c]+(i%25)+"minus10"+"' controls> <source src='"+minus10+"' type='audio/mpeg'> </audio></br>");
+                    $('body').append("<audio class='audioCell' id='"+strings[c]+(i%25)+"minus5"+"' controls> <source src='"+minus5+"' type='audio/mpeg'> </audio></br>");
+                    $('body').append("<audio class='audioCell' id='"+strings[c]+(i%25)+"plus5"+"' controls> <source src='"+plus5+"' type='audio/mpeg'> </audio></br>");
+                    $('body').append("<audio class='audioCell' id='"+strings[c]+(i%25)+"plus10"+"' controls> <source src='"+plus10+"' type='audio/mpeg'> </audio></br>");
+                }
+
+            }
+        </script>
+
+ 	</div>
+</body>
+</html>
