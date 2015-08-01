@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
   	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <script type="text/javascript" language="Javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script type="text/javascript" language="Javascript" src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'js/raphael-min.js' %}"></script>
     <script type="text/javascript" language="Javascript" src="{% static 'js/bootstrap.js' %}"></script>
 	<script type="text/javascript" language="javascript" src="{% static 'js/scripts.js' %}"></script>
 	<script type="text/javascript" language="javascript" src="{% static 'js/metronome.js' %}"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+    <script src="{% static 'js/modernizr.min.js' %}"></script>
 </head>
 
 <body>
@@ -122,15 +122,6 @@
 
             m.shapes().outline.attr("fill", "#34495e");
             m.shapes().arm.attr("stroke", "#EEE");
-
-            $(function () {
-                var audioElement = $('#audio'), href = audioElement.children('a').attr('href');
-                $.template('audioTemplate', '<audio src="${src}" controls>');
-                if (Modernizr.audio.mp3) {
-                    audioElement.empty();
-                    $.tmpl('audioTemplate', {src: href}).appendTo(audioElement);
-                }
-            });
 
             var strings = ['e', 'a', 'd', 'g', 'b', 'e-'];
             var strings2 = ['E', 'A', 'D', 'G', 'B', 'e'];
